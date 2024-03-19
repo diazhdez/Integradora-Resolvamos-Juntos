@@ -1,0 +1,101 @@
+{% extends './base.html' %}
+
+{% block customCSS %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/estilos.css') }}">{% endblock %}
+
+{% block title %}Administrador{% endblock %}
+
+{% block content %}Gráfica de Quejas{% endblock %}
+
+{% block body %}
+<div class="Aldo-content container">
+    <h2 class="py-4">Registro de quejas</h2>
+</div>
+<div class="container mb-5">
+    <div class="grafica-container">
+        <canvas id="grafica-pastel" style="width: 400px; height: 300px; margin: 20px auto;"></canvas>
+    </div>
+</div>
+<!-- Incluimos la librería de Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- SCRIPT PARA LA GRÁFICA DE PASTEL -->
+<script>
+    // Función para mostrar porcentaje en la etiqueta del tooltip
+    function mostrarPorcentaje(tooltipItem, data) {
+        var dataset = data.datasets[tooltipItem.datasetIndex];
+        var total = dataset.data.reduce(function (total, value) {
+            return total + value;
+        }, 0);
+        var currentValue = dataset.data[tooltipItem.index];
+        var percentage = ((currentValue / total) * 100).toFixed(2);
+        return dataset.label + ': ' + currentValue + ' (' + percentage + '%)';
+    }
+
+    // Función para obtener los datos de la tabla de MySQL
+    async function obtenerDatosInconvenientes() {
+        try {
+            const response = await fetch('/datos_inconvenientes');
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error('Error al obtener datos:', error);
+            return [];
+        }
+    }
+
+    // Arreglo de 10 tonos de azules diferentes en formato RGBA
+    const coloresAzules = [
+        'rgba(0, 0, 255, 0.7)',
+        'rgba(30, 144, 255, 0.7)',
+        'rgba(0, 191, 255, 0.7)',
+        'rgba(135, 206, 235, 0.7)',
+        'rgba(70, 130, 180, 0.7)',
+        'rgba(100, 149, 237, 0.7)',
+        'rgba(65, 105, 225, 0.7)',
+        'rgba(0, 0, 128, 0.7)',
+        'rgba(0, 0, 205, 0.7)',
+        'rgba(25, 25, 112, 0.7)',
+    ];
+
+    // Función para calcular el total de valores en el arreglo
+    function calcularTotal(valores) {
+        return valores.reduce((total, valor) => total + valor, 0);
+    }
+
+    // Función para cargar la gráfica con los nuevos colores y valores en porcentaje
+    async function cargarGrafica() {
+        const data = await obtenerDatosInconvenientes();
+        const labels = data.map(item => item[0]);
+        const values = data.map(item => item[1]);
+
+        var total = calcularTotal(values);
+        var porcentajes = values.map(valor => ((valor / total) * 100).toFixed(2));
+
+        var ctx = document.getElementById('grafica-pastel').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: labels.map((label, index) => label + ': ' + porcentajes[index] + '%'),
+                datasets: [{
+                    data: porcentajes,
+                    backgroundColor: coloresAzules, // Utilizamos los colores personalizados
+                }],
+            },
+            options: {
+                animation: {
+                    animateScale: true
+                },
+                tooltips: {
+                    callbacks: {
+                        label: mostrarPorcentaje
+                    },
+                    bodyFontSize: 14,
+                },
+            }
+        });
+    }
+
+    cargarGrafica();
+</script>
+{% endblock %}

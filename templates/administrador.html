@@ -1,0 +1,122 @@
+{% extends './base.html' %}
+
+{% block customCSS %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/index.css') }}">{% endblock %}
+
+{% block title %}Inicio | Administrador{% endblock %}
+
+{% block content %}Innovadores en TI{% endblock %}
+
+{% block body %}
+<!-- BANNER -->
+<section id="banner">
+    <!-- TEXTO BANNER -->
+    <div class="contenido-banner">
+        <h3><span>Resolvamos Juntos</span><br>¡Conoce sobre nuestro proyecto!</h3>
+    </div>
+</section>
+<!-- BANNER END -->
+<main>
+    <section class="general">
+        <!-- TEXTO -->
+        <div class="general-1">
+            <h2>¿Quiénes Somos?</h2>
+            <p>Somos una organización que tiene la misión de recibir, investigar y resolver
+                las quejas relacionadas con problemas en las aulas de la Universidad Tecnológica de Acapulco,
+                tanto de estudiantes como del personal docente. <br>
+                Su objetivo es mejorar las condiciones y calidad del entorno de aprendizaje para
+                el bienestar de la comunidad educativa en dicha universidad.
+            </p>
+        </div>
+        <!-- IMAGEN GRUPO -->
+        <div class="general-2"></div>
+    </section>
+    <section class="general">
+        <!-- IMAGEN USUARIO -->
+        <div class="general-3"></div>
+        <!-- TEXTO -->
+        <div class="general-1">
+            <h2>¿Cómo utilizar la Página WEB?</h2>
+            Ya iniciada la sesión con su respectivo correo:
+            <ul>
+                <li>De click a donde dice "Ìnsertar" en el apartado de Insertar una queja.</li>
+                <li>Inserte su nombre y apeliido.</li>
+                <li>Seleccione su piso y aula.</li>
+                <li>Inserte su tipo de queja y explique.</li>
+                <li>Adjunte una evidencia (foto).</li>
+                <li>Espere la respuesta de nuestro equipo.</li>
+            </ul>
+        </div>
+        <!-- IMAGEN USUARIO RESPONSIVE -->
+        <div class="general-5"></div>
+    </section>
+    <section class="general">
+        <!-- TEXTO -->
+        <div class="general-1">
+            <h2>Integrantes del Equipo:</h2>
+            <ul>
+                <li>Alejandro Marin Hernández: Lider del Proyecto</li>
+                <li>Jose Gulmaro Marquez Flores: Base de Datos y Seguridad</li>
+                <li>Josseline Sotelo Hernández: Base de Datos y Diseñadora</li>
+                <li>Josué Ramses Rojas Vallejo: Programador y Diseñador</li>
+                <li>Josué Díaz Hernández: Programador y Tester</li>
+                <li>Jair Said Millan Justo: Programador</li>
+                <li>Juan Carlos Alarcon Benitez: Documentador</li>
+            </ul>
+        </div>
+        <!-- IMAGEN INTEGRANTES -->
+        <div class="general-4"></div>
+    </section>
+    <section id="quejas">
+        <div>
+            <img src="/static/images/queja.png" width="250px" height="250px">
+            <h4>Insertar una queja.</h4>
+            <p>De click para poner su queja</p>
+            <a href="{{ url_for('quejas') }}" class="insertar-queja">Insertar</a>
+        </div>
+        <div>
+            <img src="/static/images/seguimiento.png" width="250px" height="250px">
+            <h4>Seguimiento de quejas.</h4>
+            <p>Cheque en que estado se encuentra su queja</p>
+            <a href="{{ url_for('estado_queja') }}" class="insertar-queja">Seguimiento</a>
+        </div>
+    </section>
+    <section id="quejas">
+        <div>
+            <img src="/static/images/bandeja.png" width="250px" height="250px">
+            <h4>Bandeja de quejas</h4>
+            <p>Dar respuesta a las quejas</p>
+            <a href="{{ url_for('bandeja') }}" class="insertar-queja">Mostrar</a>
+        </div>
+        <div>
+            <img src="/static/images/grafica.png" width="250px" height="250px">
+            <h4>Registro de quejas<a href=""></a></h4>
+            <p>Muestra el tipo de quejas hay registradas</p>
+            <a href="{{ url_for('grafica') }}" class="insertar-queja">Mostrar</a>
+        </div>
+    </section>
+    <section id="iconos">
+        <div class="contenido-iconos">
+            <div>
+                <i class="fa-solid fa-school fa-3x"></i>
+                <h6>Universidad</h6>
+                <p>"La institución que nos alberga y nos brinda las herramientas para el desarrollo de un futuro"</p>
+            </div>
+            <div>
+                <i class="fa-solid fa-book fa-3x"></i>
+                <h6>Quejas</h6>
+                <p>"Inconformidades y quejas existen diariamente, y no existen barreras para una solución."</p>
+            </div>
+            <div id="icono-mobile">
+                <i class="fa-solid fa-mobile-retro fa-3x"></i>
+                <h6>Facilidad</h6>
+                <p>"Tu celular ya es un centro de manejo personal y ahora acelera a una evolución web para estos casos
+                    de inconformidad"</p>
+            </div>
+        </div>
+        <div class="boton-iconos">
+			<a href="{{ url_for('logout') }}" class="volver">Cerrar sesión</a>
+		</div>
+    </section>
+</main>
+{% endblock %}

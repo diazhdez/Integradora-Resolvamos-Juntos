@@ -1,0 +1,101 @@
+{% extends './layout.html' %}
+
+{% block title %}Resolvamos Juntos{% endblock %}
+
+{% block content %}Innovadores en TI{% endblock %}
+
+{% block body %}
+<div class="section">
+	<div class="container">
+		<div class="col-12 text-center align-self-center py-5">
+			<div class="section pt-sm-1 text-center">
+				<!-- BOTONES -->
+				<h4 class="pb-3"><span>Iniciar sesión</span><span>Registrarse</span></h4>
+				<input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
+				<label for="reg-log"></label>
+				<!-- 3D -->
+				<div class="card-3d-wrap mx-auto">
+					<div class="card-3d-wrapper">
+						<!-- INICIO FORMULARIO DE REGISTRO -->
+						<div class="card-back">
+							<div class="center-wrap">
+								<div class="section text-center">
+									<!-- REGISTRARSE -->
+									<h2 class="mb-3 pb-3"><span>Registrarse</span></h2>
+									<!-- FORMULARIO REGISTRO -->
+									<form class="row needs-validation" action="/registro" method="POST">
+										<!-- NOMBRE -->
+										<div class="form-group">
+											<input type="text" class="form-style" placeholder="Nombre" name="nombre">
+											<i class="input-icon uil uil-user"></i>
+										</div>
+										<!-- APELLIDOS -->
+										<div class="form-group mt-2">
+											<input type="text" class="form-style" placeholder="Apellidos"
+												name="apellidos">
+											<i class="input-icon uil uil-user"></i>
+										</div>
+										<!-- CORREO -->
+										<div class="form-group mt-2">
+											<input type="email" class="form-style" placeholder="Correo Institucional"
+												name="correo" required>
+											<i class="input-icon uil uil-at"></i>
+										</div>
+										<!-- CONTRASEÑA -->
+										<div class="form-group mt-2">
+											<input type="password" class="form-style" placeholder="Contraseña"
+												name="contraseña">
+											<i class="input-icon uil uil-lock-alt"></i>
+										</div>
+										<!-- BOTON DE REGISTRO -->
+										<div class="d-grid">
+											<button type="submit" class="btn btn-primary mt-4"
+												formaction="{{ url_for('login') }}">Crear
+												Cuenta</button>
+										</div>
+									</form>
+									<!-- CIERRE FORMULARIO REGISTRO -->
+								</div>
+							</div>
+						</div>
+						<!-- INICIO FORMULARIO DE LOGIN -->
+						<div class="card-front shadow">
+							<div class="center-wrap">
+								<div class="section text-center">
+									<!-- INICIAR SESION -->
+									<h2 class="mb-4 pb-3"><span>Iniciar sesión</span></h2>
+									<!-- FORMULARIO LOGIN -->
+									<form class="row needs-validation" action="/login" method="POST">
+										<!-- CORREO -->
+										<div class="form-group">
+											<input type="email" class="form-style" name="txtcorreo"
+												placeholder="Correo Institucional" required>
+											<i class="input-icon uil uil-at"></i>
+										</div>
+										<!-- CONTRASEÑA -->
+										<div class="form-group mt-2">
+											<input type="password" class="form-style" name="txtcontraseña"
+												placeholder="Contraseña" required>
+											<i class="input-icon uil uil-lock-alt"></i>
+										</div>
+										<!-- BOTON DE LOGIN -->
+										<div class="d-grid">
+											<button type="submit" class="btn btn-primary mt-4">Ingresar</button>
+										</div>
+										<!-- LINKS -->
+										<div class="my-3">
+											<span class="message"><a href="{{ url_for('recuperar') }}">Olvidé mi
+													contraseña</a></span>
+										</div>
+									</form>
+									<!-- CIERRE FORMULARIO LOGIN -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

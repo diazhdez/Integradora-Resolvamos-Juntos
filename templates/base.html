@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<!-- META TAGS -->
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- RESPONSIVE -->
+	<meta name="viewport"
+		content="width=device-width, user scalable=no, initial-scale=1.0, maximun-scale=1.0, minimum-scale=1.0">
+	<!-- CSS -->
+	{% block customCSS %} {% endblock %}
+	<!-- BOOTSTRAP CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+	<!-- BOOTSTRAP ICONS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+	<!-- TITULO -->
+	<title>{% block title %} {% endblock %}</title>
+</head>
+
+<body>
+	<!-- HEADER -->
+	<header>
+		<!-- LOGO EN HEADER -->
+		<img src="/static/images/logo.png" width="45" class="img-fluid" alt="Logo Equipo">
+		<!-- EQUIPO EN HEADER -->
+		<h2>{% block content %} {% endblock %}</h2>
+	</header>
+	<!-- HEADER END -->
+    {% block body %}
+
+    {% endblock %}
+    <!-- FOOTER -->
+	<footer>
+		<!-- CONTACTO -->
+		<div class="top_header">
+			<!-- DIRECCIÓN -->
+			<section>
+				<span><i class="bi bi-geo-alt-fill"></i></span>
+				<span>
+					<a href="https://goo.gl/maps/D8RznJfKemS6JqAw8">Av. Comandante Bouganville L5 Fracc. Lomas de
+						Costa
+						Azul C.P. 39830, Acapulco de Juarez.</a>
+				</span>
+			</section>
+			<!-- TELÉFONO -->
+			<section>
+				<span><i class="bi bi-telephone-fill"></i></span>
+				<span>
+					<a href="tel: 7446886415">Servicios Escolares: 7446886415</a>
+					<a href="tel: 7446886416">Rectoría: 7446886416</a>
+				</span>
+			</section>
+			<!-- CORREO -->
+			<section>
+				<span><i class="bi bi-envelope-fill"></i></span>
+				<span>
+					<a href="mailto: universidad@utacapulco.edu.mx">universidad@utacapulco.edu.mx</a>
+				</span>
+			</section>
+		</div>
+		<!-- LINEA DE DIVISIÓN -->
+		<span class="border-shape"></span>
+		<div class="bottom_content">
+			<!-- REDES -->
+			<section>
+				<!-- PÁGINA UTA -->
+				<a href="https://utacapulco.edu.mx/"><i class="bi bi-house-fill"></i></a>
+				<!-- FACEBOOK UTA -->
+				<a
+					href="https://www.facebook.com/people/Oficial-Universidad-Tecnol%C3%B3gica-de-Acapulco/100063862541593/"><i
+						class="bi bi-facebook"></i></a>
+				<!-- TWITTER UTA -->
+				<a href="https://twitter.com/Utacapulco1"><i class="bi bi-twitter"></i></a>
+			</section>
+		</div>
+		<!-- SECCIÓN COPYRIGHT -->
+		<div class="copyright">
+			Copyright © 2023 INNOVADORES EN TI. Todos los derechos reservados.
+		</div>
+	</footer>
+	<!-- FOOTER END -->
+
+	<!-- BOOTSTRAP JAVASCRIPT -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+		crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/e9c907996a.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

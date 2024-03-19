@@ -1,0 +1,89 @@
+{% extends './base.html' %}
+
+{% block customCSS %}<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/index.css') }}">{% endblock %}
+
+{% block title %}Administrador{% endblock %}
+
+{% block content %}Bandeja de Quejas{% endblock %}
+
+{% block body %}
+<!-- BANDEJA DE ADMINISTRADOR -->
+<div class="Aldo-content container">
+    <h2 class="py-4">Bandeja de quejas</h2>
+</div>
+<div class="container mb-5">
+    <div class="card shadow bg">
+        <div class="card-body">
+            <h5 class="bi bi-envelope-exclamation-fill mb-3"> Número de registros: {{ dataTotal }}</h5>
+            <!-- Tabla -->
+            <table class="table table-bordered">
+                <thead class="text-center">
+                    <th scope="col">Nombre del alumno</th>
+                    <th scope="col">Apellidos del alumno</th>
+                    <th scope="col">Tipo de queja</th>
+                    <th scope="col">Leer queja</th>
+                </thead>
+                <tbody class="text-center">
+                    <!-- Declara un bucle -->
+                    {% for d in data %}
+                    <tr>
+                        <td>{{d.alumnoNombre}}</td>
+                        <td>{{d.alumnoApellidos}}</td>
+                        <td>{{d.quejaTipo}}</td>
+                        <td><button class="btn btn-primary btn-sm" id="btn-edit{{d.quejaID}}" data-bs-toggle="modal"
+                                data-bs-target="#modal{{d.quejaID}}">Leer</button></td>
+                    </tr>
+                    <!--MODAL -->
+                    <div class="modal fade" id="modal{{d.quejaID}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">{{d.quejaTipo}}</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="/img/{{d.quejaID}}" method="get">
+                                        <label>Nombre del alumno</label>
+                                        <input type="text" class="form-control mb-3" name="alumnoNombre"
+                                            value="{{d.alumnoNombre}}" readonly>
+
+                                        <label>Apellidos del alumno</label>
+                                        <input type="text" class="form-control mb-3" name="alumnoApellidos"
+                                            value="{{d.alumnoApellidos}}" readonly>
+
+                                        <label>Piso</label>
+                                        <input type="text" class="form-control mb-3" name="pisoNumero"
+                                            value="{{d.pisoNumero}}" readonly>
+
+                                        <label>Aula</label>
+                                        <input type="text" class="form-control mb-3" name="aulaNumero"
+                                            value="{{d.aulaNumero}}" readonly>
+
+                                        <label>Detalles del Incoveniente</label>
+                                        <input type="text" class="form-control mb-3" name="quejaDetalle"
+                                            value="{{d.quejaDetalle}}" readonly>
+
+                                        <label>Evidencia del Incoveniente</label>
+                                        <!-- <input type="text" class="form-control mb-3" name="quejaEvidencia"
+                                                value="{{ url_for('img', id=d.quejaID)}}"> -->
+                                        <img src="{{ url_for('img', id=d.quejaID)}}">
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="" class="btn btn-primary btn-sm">Visto</a>
+                                    <a href="" class="btn btn-primary btn-sm">Caso en Proceso</a>
+                                    <a href="{{url_for('eliminaQueja', id=d.quejaID)}}"
+                                        class="btn btn-danger btn-sm">Caso Solucionado</a>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

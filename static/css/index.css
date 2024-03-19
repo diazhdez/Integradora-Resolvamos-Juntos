@@ -1,0 +1,491 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+/* BODY */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url("/static/images/background.jpg");
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+/* HEADER */
+header {
+    height: 70px;
+    padding: 0 50px;
+    display: flex;
+    align-items: center;
+    background: #242424;
+    justify-content: space-between;
+}
+
+/* NOMBRE DEL EQUIPO EN HEADER */
+header h2 {
+    color: white;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+/* BANNER */
+#banner {
+    padding: 0 50px;
+    background-image: url('https://cdn.discordapp.com/attachments/698792616908816416/1112527845739204608/acapulco.jpg');
+    height: 45vh;
+    background-size: cover;
+    background-position: center;
+}
+
+#banner::before {
+    content: '';
+    background: rgba(5, 5, 36, 0.6);
+    position: absolute;
+    width: 100%;
+    height: 45vh;
+    left: 0;
+}
+
+.contenido-banner {
+    position: relative;
+    color: #fff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contenido-banner h3 {
+    font-size: 50px;
+    font-weight: 400;
+    padding: 10px 0px;
+}
+
+.contenido-banner h3 span {
+    font-weight: 700;
+}
+
+/* MAIN */
+.general {
+    display: flex;
+    /* background-color: #d9def4; */
+}
+
+.general-1 {
+    width: 50%;
+    color: black;
+    font-weight: 700;
+    padding: 100px 150px 100px 100px;
+}
+
+.general-1 h2 {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.general-1 p {
+    text-align: justify;
+}
+
+.general-2 {
+    background-image: url(/static/images/grupo.jpeg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 50%;
+}
+
+.general-3 {
+    background-image: url(/static/images/nayeon.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 50%;
+}
+
+.general-4 {
+    background-image: url(/static/images/twice.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 50%;
+}
+
+.general-5 {
+    background-image: url(/static/images/nayeon.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 50%;
+}
+
+.general-5 {
+    display: none;
+}
+
+main {
+    font-weight: 500;
+}
+
+/* REGLAS */
+.Aldo {
+    padding: 50px 0;
+    color: black;
+    /* background-color: #446ede; */
+    font-weight: 500;
+    position: relative;
+}
+.Aldo-content {
+    text-align: center;
+    justify-content: space-evenly;
+
+}
+.Aldo-content h2{
+    font-size: 55px;
+    line-height: 70px;
+    text-transform: uppercase;
+    padding: 0 250px;
+    margin-bottom: 15px;
+}
+.txt-p {
+    font-size: 20PX;
+    padding: 0 250px;
+    margin-bottom: 35px;
+}
+.Aldo-group {
+    display: flex;
+    justify-content: space-between;
+}
+.Aldo-1 {
+    padding: 0 25px;
+}
+.Aldo-1 img {
+    width: 200px;
+}
+.Aldo-img {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.Aldo-1 h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+/* INSERTA QUEJAS */
+#quejas {
+    padding: 50px 50px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    /* background-color: #d9def4; */
+    justify-content: space-evenly;
+}
+
+#quejas div {
+    padding: 10px 30px;
+}
+
+#quejas div h4 {
+    color: #000000;
+    font-size: 20PX;
+    margin: 15px 0px;
+}
+
+#quejas div p {
+    color: #000000;
+    font-size: 18px;
+}
+
+.insertar-queja {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    border: 3px solid #0a5cb8;
+    background-color: #0a5cb8;
+    padding: 10px 30px;
+    border-radius: 30px;
+    margin-top: 15px;
+    transition: all 0.45s;
+}
+
+.insertar-queja:hover {
+    background: #d9def4;
+    border: 3px solid #0a5cb8;
+    color: #0a5cb8;
+}
+
+/*ICONOS*/
+#iconos {
+    padding: 0px 50px;
+    background: #446ede;
+}
+
+.contenido-iconos {
+    padding: 50px 50px 0px 50px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.contenido-iconos div {
+    flex: 1;
+    margin: 20px 0px;
+    border-right: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+#icono-mobile {
+    border: none;
+}
+
+.contenido-iconos div i {
+    color: #010585;
+}
+
+.contenido-iconos div h6 {
+    color: aliceblue;
+    font-size: 20px;
+    margin: 10px 0px;
+}
+
+.contenido-iconos div p {
+    color: aliceblue;
+    font-size: 15px;
+}
+
+.boton-iconos {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.volver {
+    display: inline-block;
+    text-decoration: none;
+    color: #0a5cb8;
+    border: 3px solid #d9def4;
+    background-color: #d9def4;
+    padding: 10px 30px;
+    border-radius: 30px;
+    margin-top: 15px;
+    transition: all 0.45s;
+}
+
+.volver:hover {
+    background: #0a5cb8;
+    border: 3px solid #d9def4;
+    color: #d9def4;
+}
+
+/* MAIN RESPONSIVE */
+@media (max-width: 768px) {
+    .general {
+        flex-direction: column;
+    }
+
+    .general-1 {
+        width: 100%;
+        padding: 50px;
+        text-align: center;
+    }
+
+    .general-1 ul {
+        text-align: justify;
+    }
+
+    .general-3 {
+        display: none;
+    }
+
+    .general-2,
+    .general-4,
+    .general-5 {
+        display: flex;
+        background-position: center;
+        background-size: cover;
+        width: 100%;
+        padding: 150px;
+    }
+
+    .Aldo{
+        padding: 30px;
+    }
+    .Aldo-content h2{
+      padding: 0;  
+    }
+    .txt-p{
+        padding: 0;
+    }
+    .Aldo-group{
+        flex-direction: column;
+        margin-bottom: 0;
+    }
+    .Aldo-img{
+        padding: 10;
+    }
+    
+    /*QUEJAS*/
+    #quejas {
+        flex-direction: column;
+        display: flex;
+    }
+
+    /*ICONOS*/
+    .contenido-iconos {
+        flex-direction: column;
+    }
+
+    .contenido-iconos div {
+        border: none;
+    }
+}
+
+/* FOOTER */
+footer {
+    width: 100%;
+    background-color: #121619;
+    color: #fff;
+}
+
+footer i {
+    font-size: x-large;
+}
+
+.top_header {
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.top_header section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.top_header span {
+    padding: 0 1rem;
+}
+
+.top_header .fa {
+    color: #656565;
+    font-size: 35px;
+}
+
+.top_header a {
+    text-decoration: none;
+    color: #fff
+}
+
+.top_header a:hover {
+    color: #919191;
+    text-decoration: underline;
+}
+
+footer .border-shape {
+    width: 40%;
+}
+
+footer .border-shape::before {
+    width: 100%;
+    left: 120px;
+}
+
+footer .border-shape::after {
+    width: 100%;
+    right: 120px;
+}
+
+.border-shape {
+    background: #656565;
+    color: #fff;
+    display: block;
+    height: 3px;
+    left: 0;
+    margin: 10px auto;
+    position: relative;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 80px;
+}
+
+.border-shape::before {
+    background: #656565;
+    bottom: 0;
+    content: "";
+    height: 1px;
+    left: 80px;
+    margin: 0 auto;
+    position: absolute;
+    text-align: center;
+    top: 1px;
+    width: 100px;
+}
+
+.border-shape::after {
+    background: #656565;
+    bottom: 0;
+    content: "";
+    height: 1px;
+    margin: 0 auto;
+    position: absolute;
+    right: 80px;
+    text-align: center;
+    top: 1px;
+    width: 100px;
+}
+
+footer .bottom_content section {
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: Center;
+}
+
+.bottom_content a {
+    margin: 0 20px;
+    font-size: 20px;
+    transition: 0.5s;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.bottom_content a:hover {
+    color: rgba(255, 255, 255, 1);
+}
+
+
+.copyright {
+    padding: 0.8em 0;
+    background-color: #1e1e1e;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+}
+
+/* FOOTER RESPONSIVE */
+@media (max-width:820px) {
+    .top_header {
+        padding: 1rem;
+        display: block;
+    }
+
+    .top_header section {
+        margin: 40px 0;
+        align-items: left;
+        justify-content: left;
+    }
+
+    footer .bottom_content section {
+        padding: 1rem;
+        display: block;
+    }
+
+    footer .bottom_content section a {
+        padding: 1rem;
+        font-size: 30px;
+        margin: 0 5px;
+        display: inline-block;
+    }
+}

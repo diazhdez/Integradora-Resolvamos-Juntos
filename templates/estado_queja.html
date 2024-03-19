@@ -1,0 +1,37 @@
+{% extends './base.html' %}
+
+{% block customCSS %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/estado.css') }}">{% endblock %}
+
+{% block title %}Estado de Quejas{% endblock %}
+
+{% block content %}Estado de Quejas{% endblock %}
+
+{% block body %}
+<!-- HEADER END -->
+<div class="container">
+	<h1>Estado de la Queja</h1>
+
+	<form method="post" class="centered">
+		<label for="folio" class="mb-3">Ingresar ID de Folio:</label>
+		<input type="text" name="folio" id="folio" required class="input-rounded">
+		<button type="submit" class="btn-rounded">Consultar</button>
+	</form>
+
+	{% if mensaje_error %}
+	<p class="centered">{{ mensaje_error }}</p>
+	{% else %}
+	<div class="centered">
+		<p>Nombre: {{ nombre }}</p>
+		<p>Causa de Reporte: {{ causa_reporte }}</p>
+	</div>
+	<div class="status-bar centered">
+		{% for etapa in etapas %}
+		<div class="status-point{% if etapa == estado_queja %} active{% endif %}" title="{{ etapa }}"></div>
+		{% endfor %}
+	</div>
+	<p class="status-text{{ ' active' if estado_queja == 'Pendiente' else '' }} centered">Estado de la queja: {{
+		estado_queja }}</p>
+	{% endif %}
+</div>
+{% endblock %}

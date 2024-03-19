@@ -1,0 +1,119 @@
+{% extends './base.html' %}
+
+{% block customCSS %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/index.css') }}">{% endblock %}
+
+{% block title %}Ingresar Quejas{% endblock %}
+
+{% block content %}Quejas{% endblock %}
+
+{% block body %}
+<section class="Aldo">
+    <div class="Aldo-content container">
+        <h2>Reglas al utilizar la Aplicación Web</h2>
+        <p class="txt-p">¡Sigue las siguientes reglas antes de ingresar una queja!</p>
+        <div class="Aldo-group">
+            <div class="Aldo-1 col-4">
+                <img src="/static/images/lupa.png" class="mb-3">
+                <h3>Verifique su piso</h3>
+                <p>1. Al momento de redactar una queja, verifique la ubicación de piso y aula en el que se ubica la
+                    problemática.
+                </p>
+            </div>
+            <div class="Aldo-1 col-4">
+                <img src="/static/images/reloj.png" class="mb-3">
+                <h3>Sea paciente</h3>
+                <p>2. Toma un tiempo de espera mientras los administradores revisan tus inconformidades.</p>
+            </div>
+            <div class="Aldo-1 col-4">
+                <img src="/static/images/carta.png" class="mb-3">
+                <h3>Evidencia notificada</h3>
+                <p>3. Al momento de concluir tu queja, podrás visualizar un número de folio único, con el que puedes
+                    tener evidencia de tú queja en caso de notar incumplimientos.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="Aldo-content container">
+    <h2 class="py-4">Ingresa tu queja aqui!</h2>
+</div>
+<div class="container mb-5">
+    <div class="card shadow bg">
+        <div class="card-body">
+            <form action="/insertQueja" method="POST">
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <label>Nombre del alumno:</label>
+                        <input type="text" class="form-control mb-3" name="alumnoNombre">
+                    </div>
+                    <div class="col-6">
+                        <label>Apellidos del alumno:</label>
+                        <input type="text" class="form-control mb-3" name="alumnoApellidos">
+                    </div>
+                    <div class="col-md mb-2">
+                        <div class="form-floating">
+                            <select class="form-select" name="pisoNumero">
+                                <option selected>Selecciona aqui tu piso</option>
+                                <option value="2">Piso 2</option>
+                                <option value="3">Piso 3</option>
+                                <option value="4">Piso 4</option>
+                                <option value="6">Piso 6</option>
+                            </select>
+                            <label for="floatingSelectGrid">Piso:</label>
+                        </div>
+                    </div>
+                    <div class="col-md mb-2">
+                        <div class="form-floating">
+                            <select class="form-select" name="aulaNumero">
+                                <option selected>Selecciona aqui tu aula</option>
+                                <option value="101">Aula 101</option>
+                                <option value="102">Aula 102</option>
+                                <option value="103">Aula 103</option>
+                                <option value="202">Aula 202</option>
+                                <option value="203">Aula 203</option>
+                                <option value="204">Aula 204</option>
+                                <option value="205">Aula 205</option>
+                                <option value="206">Aula 206</option>
+                                <option value="301">Aula 301</option>
+                                <option value="302">Aula 302</option>
+                                <option value="303">Aula 303</option>
+                                <option value="304">Aula 304</option>
+                                <option value="401">Aula 401</option>
+                                <option value="402">Aula 402</option>
+                                <option value="403">Aula 403</option>
+                                <option value="404">Aula 404</option>
+                                <option value="405">Aula 405</option>
+                                <option value="406">Aula 406</option>
+                            </select>
+                            <label for="floatingSelectGrid">Aula:</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <label>Tipo de queja:</label>
+                        <input type="text" class="form-control mb-3" name="quejaTipo">
+                    </div>
+                    <div class="col-12">
+                        <label>Explica tu queja:</label>
+                        <input type="text" class="form-control mb-3" name="quejaDetalle">
+                    </div>
+                    <div class="col-md">
+                        <p>Ingrese una foto de tu queja:</p>
+                        <input type="file" accept="image/*" name="quejaEvidencia" id="file" onchange="loadFile(event)"
+                            style="display: box;">
+                        <img id="output" width="200">
+                        <script>
+                            var loadFile = function (event) {
+                                var image = document.getElementById('output');
+                                image.src = URL.createObjectURL(event.target.files[0]);
+                            };
+                        </script>
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-success mb-r mt-4" type="submit">Guardar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

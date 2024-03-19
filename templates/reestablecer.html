@@ -1,0 +1,52 @@
+{% extends './layout.html' %}
+
+{% block title %}Reestablecer Contraseña{% endblock %}
+
+{% block content %}Innovadores en TI{% endblock %}
+
+{% block body %}
+<div class="section">
+	<div class="container">
+		<div class="col-12 text-center align-self-center py-5">
+			<div class="section pb-5 pt-5 pt-sm-2 text-center">
+				<!-- 3D -->
+				<div class="card-3d-wrap mx-auto">
+					<div class="card-3d-wrapper">
+						<!-- INICIO REESTABLECER CONTRASEÑA -->
+						<div class="card-front shadow">
+							<div class="center-wrap">
+								<div class="section text-center">
+									<!-- REESTABLECER CONTRASEÑA -->
+									<h2 class="mb-2 pb-3"><center>Reestablecer Contraseña</center></h2>
+									<h6 class="mb-2 pb-3"><center>Introduce tu nueva contraseña.</center></h6>
+									<!-- FORMULARIO RECUPERAR -->
+									<form class="row needs-validation">
+										<!-- NUEVA CONTRASEÑA -->
+										<div class="form-group mt-2">
+											<input type="password" class="form-style" placeholder="Nueva Contraseña"
+												required>
+											<i class="input-icon uil uil-lock-alt"></i>
+										</div>
+										<!-- REPETIR CONTRASEÑA -->
+										<div class="form-group mt-2">
+											<input type="password" class="form-style" placeholder="Repetir Contraseña"
+												required>
+											<i class="input-icon uil uil-lock-alt"></i>
+										</div>
+										<!-- BOTON ENVIAR CORREO -->
+										<div class="d-grid">
+											<button type="submit" class="btn btn-primary mt-4"
+												formaction="{{ url_for('login') }}">Reestablecer</button>
+										</div>
+									</form>
+									<!-- CIERRE RECUPERAR CUENTA -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
